@@ -1,5 +1,18 @@
 # linorobot_xavier_NX
 install linorobot ROS2 HUMBLE pkg in jetson xavier Nx
+1.install pkg
+    sudo apt install libboost-python-dev python3-dev build-essential
+    sudo apt remove --purge librealsense2*
+    sudo rm -f /etc/apt/sources.list.d/librealsense.list
+    wget -qO - https://librealsense.intel.com/Debian/apt-repo/apt-repo-key.pub | sudo apt-key add -
+    sudo apt-add-repository "deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main"
+    sudo apt update
+    sudo apt install librealsense2-utils librealsense2-dev
+    sudo apt install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
+    sudo apt remove --purge cmake
+    wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
+    sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main'
+    sudo apt update
 2. Host Machine / Development Computer - Gazebo Simulation (Optional)
 
 This step is only required if you plan to use Gazebo later. This comes in handy if you want to fine-tune parameters (ie. SLAM Toolbox, AMCL, Nav2) or test your applications on a virtual robot.
