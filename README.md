@@ -16,7 +16,7 @@ install linorobot ROS2 HUMBLE pkg in jetson xavier Nx
 
     sudo apt install librealsense2-utils librealsense2-dev
 
-    sudo apt install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
+    sudo apt install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev cmake
 
     sudo apt remove --purge cmake
 
