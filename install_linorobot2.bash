@@ -138,7 +138,18 @@ function install_realsense {
     git clone -b humble https://github.com/ros-perception/vision_opencv.git
     git clone -b humble https://github.com/ros-perception/image_common.git
     git clone -b humble https://github.com/ros-perception/image_pipeline.git
-    git clone -b ros2 https://github.com/IntelRealSense/realsense-ros.git
+    git clone https://github.com/IntelRealSense/librealsense.git
+    cd librealsense
+    mkdir build && cd build
+    cmake .. -DBUILD_EXAMPLES=true -DCMAKE_BUILD_TYPE=Release
+    make -j$(nproc)
+    sudo make install
+    sudo ldconfig
+    sudo cp ../config/99-realsense-libusb.rules /etc/udev/rules.d/
+    sudo udevadm control --reload-rules && sudo udevadm trigger
+    cd $WORKSPACE
+    git clone -b ros2-master https://github.com/IntelRealSense/realsense-ros.git src/realsense_ros
+    cd $WORKSPACE/src
     git clone -b ros2 https://github.com/ros/xacro.git 
     git clone -b ros2-humble https://github.com/ros/diagnostics.git 
     cd ..
