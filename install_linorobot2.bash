@@ -134,18 +134,6 @@ function install_s3 {
 }
 
 function install_realsense {
-    sudo apt install libboost-python-dev python3-dev build-essential
-    sudo apt remove --purge librealsense2*
-    sudo rm -f /etc/apt/sources.list.d/librealsense.list
-    wget -qO - https://librealsense.intel.com/Debian/apt-repo/apt-repo-key.pub | sudo apt-key add -
-    sudo apt-add-repository "deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main"
-    sudo apt update
-    sudo apt install librealsense2-utils librealsense2-dev
-    sudo apt install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
-    sudo apt remove --purge cmake
-    wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
-    sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main'
-    sudo apt update
     cd $WORKSPACE/src
     git clone -b humble https://github.com/ros-perception/vision_opencv.git
     git clone -b humble https://github.com/ros-perception/image_common.git
