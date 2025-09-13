@@ -26,6 +26,8 @@ install linorobot ROS2 HUMBLE pkg in jetson xavier Nx
 
     sudo apt update
 
+    sudo apt install cmake
+
 2. Host Machine / Development Computer - Gazebo Simulation (Optional)
 
 This step is only required if you plan to use Gazebo later. This comes in handy if you want to fine-tune parameters (ie. SLAM Toolbox, AMCL, Nav2) or test your applications on a virtual robot.
