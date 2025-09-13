@@ -18,6 +18,8 @@ install linorobot ROS2 HUMBLE pkg in jetson xavier Nx
 
     sudo apt install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev cmake
 
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C8B3A55A6F3EFCDE
+
     sudo apt remove --purge cmake
 
     wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
