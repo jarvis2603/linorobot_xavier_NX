@@ -4,13 +4,13 @@ install linorobot ROS2 HUMBLE pkg in jetson xavier Nx
 1.install pkg
     sudo apt install libboost-python-dev python3-dev build-essential
 
-    sudo apt remove --purge librealsense2*
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
 
-    sudo rm -f /etc/apt/sources.list.d/librealsense.list
+    sudo add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" -u
 
-    wget -qO - https://librealsense.intel.com/Debian/apt-repo/apt-repo-key.pub | sudo apt-key add -
+    sudo apt-get install librealsense2-utils
 
-    sudo apt-add-repository "deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main"
+    sudo apt-get install librealsense2-dev
 
     sudo apt update
 
